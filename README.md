@@ -11,3 +11,7 @@
     - `a`: move the piece to the left
     - `s`: move the piece down
     - `d`: move the piece to the right
+
+
+
+                                        The game is not completed
