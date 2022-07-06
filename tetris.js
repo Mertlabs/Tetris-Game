@@ -4,9 +4,20 @@ class Tetris {
     this.imageY=imageY;
     this.imageX=imageX;
     this.imageTemplate=imageTemplate;
+    this.x= squareCountX / 2;
+    this.y= 0;
     }
 
-    checkBottom(){}
+    checkBottom() {
+        for(let i = 0; i <this.template.length; i++) {
+            for(let j = 0; j <this.template.length j++) { //!=0 error ; expected
+                if(this.template[i][j] == 0) continue
+                    let realX = i + this.getTruncedPosition().x
+                    let realY = j + this.getTruncedPosition().y
+            
+        }
+    }
+}
 
     checkLeft(){}
 
@@ -93,7 +104,14 @@ let gameLoop = () =>{
     setInterval(draw, 1000/ framePerSecond)
 };
 
-let update = () => {};
+let update = () => {
+
+    if(gameOver) return;
+    if (currentShape.checkBottom()) {
+        currentShape += 1;
+    
+    }
+};
 
 let drawRect = (x, y, width, height, color) => {
     ctx.fillStyle = color;
@@ -113,10 +131,36 @@ let drawBackground = () => {
     }
 };
 
+
 let drawCurrentTetris = () => {
 
-    // !! 
+    for(let i = 0; i < currentShape.template.length; i++) ;{
+        for (let j = 0; j<cureentShape.template.length; j++) {
+            if (currentShape.template[i][j] == 1) continue 
+            console.log(image);
+            ctx.drawImage(
+                image, 
+                currentShape.imageX, 
+                currentShape.imageY, 
+                imageSquareSize, 
+                imageSquareSize, 
+                Math.trunc(currentShape.x) * size + size * i,
+                Math.trunc(currentShape.y) * size + size * j,
+                size,
+                size
+            );
     
+}
+}
+};
+
+let drawSquares = () => {
+
+
+}
+let drawNextShape = () => {
+
+
 }
 
 let draw = () => {
@@ -151,6 +195,8 @@ let resetVars = () => {
 
 };
 }
+
+resetVars();
 
 gameLoop();
 
